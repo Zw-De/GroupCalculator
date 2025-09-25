@@ -1,40 +1,44 @@
 import Foundation
 
-func showMenu() {
-print("""
-select an operation:
-1: Add
-2: Subtract
-""")
-}
+print("Select an operation:")
+print("1: Add")
+print("2: Subtract")
 
-showMenu() 
+if let operation = readLine() {
 
-guard let operation = readLine() else {
-print("Invalid input. Please enter 1 or 2.")
-exit(0)
-}
+    if operation == "1" {
+        print("Enter the first number:")
+        if let firstInput = readLine(), let firstNumber = Int(firstInput) {
+            print("Enter the second number:")
+            if let secondInput = readLine(), let secondNumber = Int(secondInput) {
+                let sum = firstNumber + secondNumber
+                print("The sum is \(sum)")
+            } else {
+                print("Invalid input. Please enter a number.")
+            }
+        } else {
+            print("Invalid input. Please enter a number.")
+        }
 
-if operation == "1" {
-print("Enter the first number:")
-let firstNumber = Int(readLine()!)!
+    } else if operation == "2" {
+        print("Enter the first number:")
+        if let firstInput = readLine(), let firstNumber = Int(firstInput) {
+            print("Enter the second number:")
+            if let secondInput = readLine(), let secondNumber = Int(secondInput) {
+                let difference = firstNumber - secondNumber
+                print("The difference is \(difference)")
+            } else {
+                print("Invalid input. Please enter a number.")
+            }
+        } else {
+            print("Invalid input. Please enter a number.")
+        }
 
-print("Enter the second number:")
-let secondNumber = Int(readLine()!)!
-
-let sum = firstNumber + secondNumber
-print("The sum is \(sum)")
-
-} else if operation == "2" {
-print("Enter the first number:")
-let firstNumber = Int(readLine()!)!
-
-print("Enter the second number:")
-let secondNumber = Int(readLine()!)!
-
-let difference = firstNumber - secondNumber
-print("The difference is \(difference)")
+    } else {
+        print("Invalid choice. Please enter 1 or 2.")
+    }
 
 } else {
-print("Invalid input. Please enter 1 or 2.")
+    print("Invalid input. Please enter 1 or 2.")
 }
+
